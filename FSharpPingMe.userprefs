@@ -1,0 +1,25 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhoneRetina.7.1" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="FSharpPingMe.Apple/PingMeViewController.fs">
+    <Files>
+      <File FileName="FSharpPingMe.Apple/Shared/WebService.fs" Line="52" Column="56" />
+      <File FileName="FSharpPingMe.Apple/Shared/Website.fs" Line="18" Column="38" />
+      <File FileName="FSharpPingMe.Apple/PingMeViewController.fs" Line="12" Column="1" />
+      <File FileName="FSharpPingMe.Apple/AddWebsiteViewController.fs" Line="49" Column="57" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="FSharpPingMe.Apple" expanded="True">
+            <Node name="Shared" expanded="True" />
+            <Node name="PingMeViewController.fs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
