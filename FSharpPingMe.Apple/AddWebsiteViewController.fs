@@ -24,7 +24,7 @@ type AddWebsiteViewController(website:Website, isNew:bool) =
         let phoneNumber = new  UITextField(RectangleF(20.f, 114.f, 280.f, 50.f),
                                           Text = website.Phone,
                                           KeyboardType = UIKeyboardType.NumberPad,
-                                          Placeholder = "phone")
+                                          Placeholder = "phone with areacode")
 
         addView.Add phoneNumber
 
@@ -48,8 +48,7 @@ type AddWebsiteViewController(website:Website, isNew:bool) =
                 | false -> 
                     WebService.Shared.UpdateWebsite(description.Text, phoneNumber.Text, website.id) |> Async.RunSynchronously
                     addedLabel.Text <- "Updated!"
-                description.Text <- ""
-                phoneNumber.Text <- "")
+                )
 
         addUpdateButton.SetTitle("Save", UIControlState.Normal)
         addView.Add addUpdateButton

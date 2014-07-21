@@ -60,7 +60,7 @@
                     let json = CurrentWebsite.GetJson website
                     let content = encoding.GetBytes json
                     let request = CreateRequest (website.id)
-                    request.Method <- "PUT" 
+                    request.Method <- "PATCH" 
                     request.ContentLength <- int64 content.Length
                      
                     use s = request.GetRequestStream()
