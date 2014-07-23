@@ -15,6 +15,8 @@ I am still working through ,including:
 
 - ~~Having a way to refresh the app without relaunching~~
 
+- deleting a website
+
 In the c-sharp version there is user
 authentication to and not every site registered is shown. I just wanted to see how fsharp actually works with xamarin.
 
