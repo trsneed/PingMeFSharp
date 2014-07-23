@@ -1,4 +1,4 @@
-﻿module WebService
+﻿module WebService 
 
     open System
     open System.IO
@@ -25,9 +25,14 @@
         request.Accept <- "application/json"
         request
 
+
+    
     type WebService() =
         let client = new PingMeServiceClient ("https://pingme.azure-mobile.net/", "uXDzGggpuCtjxHCQupoSTDeHkGlUia66")
         let mutable websites = [||]
+
+        member this.GetWebsites ()=
+             JsonConvert.DeserializeObject<Website array>(ReadResponseText (CreateRequest ("")))
 
         member this.GetWebsitesAsync ():Async<Website[]> = async {
             match websites with

@@ -15,9 +15,6 @@ type PingMeDataSource(websitesource: Website [], navigation: UINavigationControl
     let sites = ResizeArray(websitesource)
     let cellIdentifier = "WebsiteCell"
 
-    member val Sites = [||] with get,set
-
-
     override x.RowsInSection(view, section) = sites.Count
     override x.GetCell(view, indexPath) = 
         let t = sites.[indexPath.Item]
@@ -35,8 +32,6 @@ type PingMeDataSource(websitesource: Website [], navigation: UINavigationControl
     override x.CommitEditingStyle(view, editingStyle, indexPath) = 
         match editingStyle with 
         | UITableViewCellEditingStyle.Delete ->
-            //Data.DeleteTask tasks.[indexPath.Item].Description
-            //tasks.RemoveAt(indexPath.Item)
             view.DeleteRows([|indexPath|], UITableViewRowAnimation.Fade)
         | _ -> Console.WriteLine "CommitEditingStyle:None called"
 
@@ -54,8 +49,14 @@ type PingMeViewController () as this =
         let addNewTask = 
             EventHandler(fun sender eventargs -> 
                 this.NavigationController.PushViewController (new AddWebsiteViewController(), true))
+        let refreshTask =
+            EventHandler(fun sender eventargs -> 
+                let refresh = WebService.Shared.GetWebsites()
+                table.Source<- new PingMeDataSource( refresh, this.NavigationController)
+                table.ReloadData())
 
         this.NavigationItem.SetRightBarButtonItem (new UIBarButtonItem(UIBarButtonSystemItem.Add, addNewTask), false)
+        this.NavigationItem.SetLeftBarButtonItem(new UIBarButtonItem(UIBarButtonSystemItem.Refresh, refreshTask), true)
         table.Frame <- this.View.Bounds
         this.View.Add table 
 
