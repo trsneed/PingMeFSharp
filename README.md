@@ -9,7 +9,7 @@ This app pings a site every 10 minutes and texts the person associated with the 
 I used xamarin, twillio, and Microsoft Azure's Mobile Services to create and track this application. There are a handful of issues
 I am still working through ,including:
 
-- ~~handling updates to existing websites. ~~
+- ~~handling updates to existing websites.~~
 
 - Using fsharp's async features (help me please)
 
