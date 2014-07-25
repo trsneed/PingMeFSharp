@@ -26,4 +26,4 @@ Writings about fsharp and xamarin:
 
 [Adding a refresh button](http://www.trsneed.com/add-a-refresh-navigation-button-to-your-xamarin-f-app/)
 
-![](http://images.trsneed.com/blogstuff/fsharp/Screen%20Shot%202014-07-21%20at%206.47.32%20AM.png)
+![](http://images.trsneed.com/blogstuff/fsharp/Screen%20Shot%202014-07-24%20at%209.58.19%20PM.png)
