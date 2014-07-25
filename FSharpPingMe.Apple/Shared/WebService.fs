@@ -32,18 +32,7 @@
         let mutable websites = [||]
 
         member this.GetWebsites ()=
-             JsonConvert.DeserializeObject<Website array>(ReadResponseText (CreateRequest ("")))
-
-        member this.GetWebsitesAsync ():Async<Website[]> = async {
-            match websites with
-            | [||] -> try
-                          return! System.Threading.Tasks.Task.Run(fun _->
-                              let response = ReadResponseText (CreateRequest (""))
-                              websites <- JsonConvert.DeserializeObject<Website array>(response)
-                              websites ) |> Async.AwaitTask
-                      with | e-> Console.WriteLine e
-                                 return [||]
-            | _ -> return websites }
+             JsonConvert.DeserializeObject<Website list>(ReadResponseText (CreateRequest ("")))
 
         member this.AddWebsite (url:string, phone:string) = async {
                 return! System.Threading.Tasks.Task.Run(fun _->
@@ -72,5 +61,18 @@
                     s.Write(content, 0, content.Length)
 
                     ReadResponseText request) |> Async.AwaitTask }
+
+        member this.DeleteWebsite(id:string) = async {
+            return! System.Threading.Tasks.Task.Run(fun _->
+                let request = CreateRequest (id)
+                request.Method <- "DELETE" 
+
+                ReadResponseText request) |> Async.AwaitTask }
+
+        member this.ValidateWebsite website = async {
+            if      website.Url = "" then return Failure "First name is required"
+            else if website.Phone  = "" then return Failure "Last name is required"
+            else return Success "User is valid" }
+              
 
     let Shared = new WebService()

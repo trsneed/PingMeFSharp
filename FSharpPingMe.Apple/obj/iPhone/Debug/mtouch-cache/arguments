@@ -1,0 +1,29 @@
+# Version: 7.2.5.5 (87026b6)
+# [first argument, ignore] # /Users/timsneed/github/FSharpPingMe/FSharpPingMe.Apple/bin/iPhone/Debug/mtouch.exe
+/Developer/MonoTouch/usr/bin/mtouch \
+	-sdkroot \
+	/Applications/Xcode.app/Contents/Developer \
+	--cache \
+	/Users/timsneed/github/FSharpPingMe/FSharpPingMe.Apple/obj/iPhone/Debug/mtouch-cache \
+	--nomanifest \
+	--nosign \
+	-dev \
+	/Users/timsneed/github/FSharpPingMe/FSharpPingMe.Apple/bin/iPhone/Debug/FSharpPingMeApple.app \
+	-r \
+	/Developer/MonoTouch/usr/lib/mono/2.1/System.dll \
+	-r \
+	/Developer/MonoTouch/usr/lib/mono/2.1/System.Xml.dll \
+	-r \
+	/Developer/MonoTouch/usr/lib/mono/2.1/System.Core.dll \
+	-r \
+	/Developer/MonoTouch/usr/lib/mono/2.1/monotouch.dll \
+	-r \
+	/Users/timsneed/github/FSharpPingMe/packages/Newtonsoft.Json.6.0.3/lib/portable-net40+sl4+wp7+win8/Newtonsoft.Json.dll \
+	-r \
+	/Developer/MonoTouch/usr/lib/mono/2.1/System.Runtime.Serialization.dll \
+	-debug \
+	-linksdkonly \
+	-sdk \
+	7.1 \
+	--abi=armv7 \
+	/Users/timsneed/github/FSharpPingMe/FSharpPingMe.Apple/bin/iPhone/Debug/FSharpPingMeApple.exe \

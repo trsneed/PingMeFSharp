@@ -10,7 +10,7 @@ open Helpers
 open WebService
 open Website
 
-type PingMeDataSource(websitesource: Website [], navigation: UINavigationController) = 
+type PingMeDataSource(websitesource: Website list, navigation: UINavigationController) = 
     inherit UITableViewSource()
     let sites = ResizeArray(websitesource)
     let cellIdentifier = "WebsiteCell"
@@ -32,15 +32,21 @@ type PingMeDataSource(websitesource: Website [], navigation: UINavigationControl
     override x.CommitEditingStyle(view, editingStyle, indexPath) = 
         match editingStyle with 
         | UITableViewCellEditingStyle.Delete ->
+            WebService.Shared.DeleteWebsite(websitesource.[indexPath.Item].id) |> Async.RunSynchronously
+            sites.RemoveAt(indexPath.Item)
             view.DeleteRows([|indexPath|], UITableViewRowAnimation.Fade)
         | _ -> Console.WriteLine "CommitEditingStyle:None called"
 
 type PingMeViewController () as this =
     inherit UIViewController ()
 
+    let refresh() = 
+        let result = WebService.Shared.GetWebsites()
+        new PingMeDataSource(result, this.NavigationController)
+
     let table = new UITableView()
 
-    let date = WebService.Shared.GetWebsitesAsync() |> Async.RunSynchronously
+    let refreshControl = new UIRefreshControl()
 
     do this.Title <- "Ping Me F#"
 
@@ -51,8 +57,7 @@ type PingMeViewController () as this =
                 this.NavigationController.PushViewController (new AddWebsiteViewController(), true))
         let refreshTask =
             EventHandler(fun sender eventargs -> 
-                let refresh = WebService.Shared.GetWebsites()
-                table.Source<- new PingMeDataSource( refresh, this.NavigationController)
+                table.Source<- refresh()
                 table.ReloadData())
 
         this.NavigationItem.SetRightBarButtonItem (new UIBarButtonItem(UIBarButtonSystemItem.Add, addNewTask), false)
@@ -62,6 +67,6 @@ type PingMeViewController () as this =
 
     override this.ViewWillAppear animated =
         base.ViewWillAppear animated
-        table.Source <- new PingMeDataSource(date , this.NavigationController)
+        table.Source <- refresh()
         table.ReloadData()
     

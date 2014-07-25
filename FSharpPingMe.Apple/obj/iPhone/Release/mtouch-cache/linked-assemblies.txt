@@ -1,0 +1,9 @@
+/Users/timsneed/github/FSharpPingMe/FSharpPingMe.Apple/obj/iPhone/Release/mtouch-cache/Link/System.Core.dll
+/Users/timsneed/github/FSharpPingMe/FSharpPingMe.Apple/obj/iPhone/Release/mtouch-cache/Link/mscorlib.dll
+/Users/timsneed/github/FSharpPingMe/FSharpPingMe.Apple/obj/iPhone/Release/mtouch-cache/Link/monotouch.dll
+/Users/timsneed/github/FSharpPingMe/FSharpPingMe.Apple/obj/iPhone/Release/mtouch-cache/Link/FSharpPingMeApple.exe
+/Users/timsneed/github/FSharpPingMe/FSharpPingMe.Apple/obj/iPhone/Release/mtouch-cache/Link/System.Runtime.Serialization.dll
+/Users/timsneed/github/FSharpPingMe/FSharpPingMe.Apple/obj/iPhone/Release/mtouch-cache/Link/Newtonsoft.Json.dll
+/Users/timsneed/github/FSharpPingMe/FSharpPingMe.Apple/obj/iPhone/Release/mtouch-cache/Link/Mono.Dynamic.Interpreter.dll
+/Users/timsneed/github/FSharpPingMe/FSharpPingMe.Apple/obj/iPhone/Release/mtouch-cache/Link/System.dll
+/Users/timsneed/github/FSharpPingMe/FSharpPingMe.Apple/obj/iPhone/Release/mtouch-cache/Link/FSharp.Core.dll
